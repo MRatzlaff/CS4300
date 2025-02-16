@@ -1,5 +1,6 @@
 # task 3: control structures
 
+# determine if positive, negative, or 0
 def what_is_it(num):
     if num > 0:
         result = "+"
@@ -10,21 +11,28 @@ def what_is_it(num):
 
     return result
 
-def prime_nums():
-    primes_list = []
+# find first 10 prime nums
+prime_nums = []
+def is_prime():
+    num = 2
     count = 0
-    sieve = 2
-    count_max = 10
+    while count < 10:
+        for c in range(2, num):
+            if num % c == 0:
+                break
+        else:
+            prime_nums.append(num)
+            count += 1
+        num += 1
+    return prime_nums
 
-    # start at 2 because there are no prime numbers lower than 2
-    while count < count_max:
-        for i in range(2, count_max):
-            if(i%sieve != 0):
-                primes_list.append(i)
-                sieve += 1
-                
-            count_max += 1
 
-    print(primes_list)
-
-prime_nums()
+# find sum of all nums from 1 to 100
+def sum_nums():
+    count = 1
+    stop = 100
+    sum = 0
+    while count <= stop:
+        sum = sum + count
+        count += 1
+    return sum
