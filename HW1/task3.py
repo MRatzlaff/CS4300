@@ -11,7 +11,7 @@ def what_is_it(num):
 
     return result
 
-# find first 10 prime nums
+# find first 10 prime nums using sieve of Eratosthenes
 prime_nums = []
 def is_prime():
     num = 2

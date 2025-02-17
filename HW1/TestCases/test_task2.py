@@ -14,6 +14,7 @@ def test_string():
     tester = task2.string_()
     assert isinstance(tester, str)
 
+#test each kind of bool result
 def test_bool_true():
     tester = task2.bool_true()
     assert isinstance(tester, bool)
