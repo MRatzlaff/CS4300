@@ -1,9 +1,9 @@
 from django.db import models
 from datetime import datetime
 
+
 # Create your models here.
 class Movie(models.Model):
-    template = loader.get_template('myfirst.html')
     title = models.CharField(max_length=200, default='')
     description = models.CharField(max_length=200, default='')
     release_date = models.DateTimeField(default=datetime.now)

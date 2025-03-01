@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from django.template import loader
-# from django.shortcuts import render
+from django.shortcuts import render
 
 from rest_framework import viewsets, status
 from .models import Movie, Seat, Booking
@@ -20,6 +20,9 @@ def bookingspage(request:Request):
         
     response = {"message": "booking page"}
     return HttpResponse(data=response, status=status.HTTP_200_OK)
+
+    #template = loader.get_template('base.html')
+    return render(request, "templates/base.html", context)
 
 #create movie page viewset
 class MovieViewSet(viewsets.ViewSet):

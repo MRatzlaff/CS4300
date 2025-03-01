@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$*pi+!oc=y%bv10)8_n2*zk97!-t7ujh12bhaq*_doj7pe-!qw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['editor-redherring-5.devedu.io']
+ALLOWED_HOSTS = ['editor-redherring-5.devedu.io', '0.0.0.0:3000']
 
 
 # Application definition
