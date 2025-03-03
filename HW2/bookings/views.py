@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from django.template import loader
 from django.shortcuts import render
 
+# for serializer
 from rest_framework import viewsets, status
 from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
@@ -28,7 +29,7 @@ def bookingspage(request:Request):
 class MovieViewSet(viewsets.ViewSet):
     def list(self,request):
         queryset = Movie.objects.all()
-        serializer=MovieSerializer(instance=queryset,many=True)
+        serializer_class=MovieSerializer(instance=queryset,many=True)
         return Response(data=serializer.data,status=status.HTTP_200_OK)
 
         # import html template
@@ -39,7 +40,7 @@ class MovieViewSet(viewsets.ViewSet):
 
     def retrieve(self,request:Request,pk=None):
         post=get_object_or_404(Post,pk=pk)
-        serializer = MovieSerializer(instance=post)
+        serializer_class = MovieSerializer(instance=post)
         return HttpResponse(template.render(context, request))
 
     def update(self, request, pk=None):
