@@ -10,6 +10,10 @@ from rest_framework import viewsets, status
 from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
+# for html
+from django.shortcuts import get_object_or_404
+from rest_framework.renderers import TemplateHTMLRenderer
+
 # Create your views here.
 
 @api_view(http_method_names=["GET", "POST"])
@@ -27,6 +31,10 @@ def bookingspage(request:Request):
 
 #create movie page viewset
 class MovieViewSet(viewsets.ViewSet):
+
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'movie_list.html'
+    
     def list(self,request):
         queryset = Movie.objects.all()
         serializer_class=MovieSerializer(instance=queryset,many=True)

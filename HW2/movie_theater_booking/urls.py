@@ -21,9 +21,9 @@ from bookings.views import MovieViewSet, SeatViewSet, BookingViewSet
 
 #url configurations
 router = DefaultRouter()
-router.register(r'api/movies', MovieViewSet, basename='movie')
-router.register(r'api/seats', SeatViewSet, basename='seat')
-router.register(r'api/bookings', BookingViewSet, basename='booking')
+router.register(r'api/movies', MovieViewSet, basename='movies')
+router.register(r'api/seats', SeatViewSet, basename='seats')
+router.register(r'api/bookings', BookingViewSet, basename='bookings')
 
 urlpatterns = [ 
     re_path(r'^admin/', admin.site.urls),
