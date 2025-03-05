@@ -1,6 +1,9 @@
 Maddison Ratzlaff
+
 Spring 2025 CS4300-001
+
 Homework 2
+
 3/4/2025
 
 DevEdu container name: redherring
