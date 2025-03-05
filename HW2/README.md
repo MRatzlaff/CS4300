@@ -3,6 +3,8 @@ Spring 2025 CS4300-001
 Homework 2
 3/4/2025
 
+DevEdu container name: redherring
+
 1. source hw2env/bin/activate
 
 2. cd CS4300/HW2
