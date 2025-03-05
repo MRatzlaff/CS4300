@@ -6,7 +6,7 @@ from django.template import loader
 from django.shortcuts import render
 
 # for serializer
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, serializers
 from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
@@ -15,7 +15,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.renderers import TemplateHTMLRenderer
 
 # Create your views here.
-
+'''
 @api_view(http_method_names=["GET", "POST"])
 def bookingspage(request:Request):
     if request.method == "POST":
@@ -28,34 +28,17 @@ def bookingspage(request:Request):
 
     #template = loader.get_template('base.html')
     return render(request, "templates/base.html", context)
-
+'''
 #create movie page viewset
 class MovieViewSet(viewsets.ViewSet):
-
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'movie_list.html'
-    
-    def list(self,request):
+    template_name = 'bookings/movie_list.html'
+
+    def list(self, request):
         queryset = Movie.objects.all()
-        serializer_class=MovieSerializer(instance=queryset,many=True)
-        return Response(data=serializer.data,status=status.HTTP_200_OK)
-
-        # import html template
-
-
-    def create(self, request):
-        pass
-
-    def retrieve(self,request:Request,pk=None):
-        post=get_object_or_404(Post,pk=pk)
-        serializer_class = MovieSerializer(instance=post)
-        return HttpResponse(template.render(context, request))
-
-    def update(self, request, pk=None):
-        pass
-
-    def destroy(self, request, pk=None):
-        pass
+        serializer = MovieSerializer(queryset, many=True)
+        return render(request, "bookings/movie_list.html")
+        #return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
 
 

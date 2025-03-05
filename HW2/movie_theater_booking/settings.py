@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-$*pi+!oc=y%bv10)8_n2*zk97!-t7ujh12bhaq*_doj7pe-!qw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['app-redherring-5.devedu.io', '0.0.0.0:3000', 'editor-redherring-5.devedu.io']
-CSRF_TRUSTED_ORIGINS = ['http://editor-redherring-5.devedu.io']
+ALLOWED_HOSTS = ['app-redherring-5.devedu.io', '0.0.0.0:3000']
+
+CSRF_TRUSTED_ORIGINS = ['https://app-redherring-5.devedu.io']
 
 # Application definition
 

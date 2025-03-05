@@ -2,16 +2,20 @@
 
 
 {% extends 'bookings/base.html' %}
+<body>
 {% block title %}Movie List{% endblock %}
 {% block content %}
-<h2> Available Movies</h2>
-<ul class="list-group">
-    {% for movie in movies %}
-    <li class="list-group-item">
-        <h5>{{movie.title}}</h5>
-        <p>{{movie.description}}</p>
 
-    </li>
-    {% endfor %}
-</ul>
+<h2> Available Movies</h2>
+
+    <ul class="list-group">
+        {% for movie in Movie %}
+        <li class="list-group-item">
+            <h5>{{movie.movie_title}}</h5>
+            <p>{{movie.description}}</p>
+
+        </li>
+     {% endfor %}
+    </ul>
+</body>
 {% endblock %}
