@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 {% extends 'bookings/base.html' %}
 <body>
-{% block title %}<h1>Find Seats</h1>{% endblock %}
+{% block title %}<h1 class="text-center">Available Seats</h1>{% endblock %}
 {% block content %}
-<h2>Available Seats</h2>
+
+<!--create grid with available seats -->
+<div class="container">
+    <div class="col row-cols-lg-3 text-primary-emphasis bg-info-subtle border-5 rounded-3 border-opacity: .1 text-center">
+        <ul class="list-group border">
+            {% for seat in seats %}
+            <li class="list-group-item border-opacity: .1 border-5 text-center">
+                <h5>{{seat.seat_number}}</h5>
+                <h6>{{seat.booking_status}}</h6>
+                
+            </li>
+            <form class="text-center border" action="https://app-redherring-5.devedu.io/api/bookings/">
+                <input type="submit" value="Book Seat" />
+                </form>
+         {% endfor %}
+        </ul>
+    </div>
+    </div>
+    </body>
+
 </body>
 {% endblock %}

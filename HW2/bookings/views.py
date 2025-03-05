@@ -19,7 +19,7 @@ class MovieViewSet(viewsets.ViewSet):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'bookings/movie_list.html'
 
-
+    # allows database to list contents
     def list(self, request):
         queryset = Movie.objects.all()
         serializer = MovieSerializer(queryset, many=True)
@@ -28,19 +28,20 @@ class MovieViewSet(viewsets.ViewSet):
         context= {'movies': movies}
         return render(request, "bookings/movie_list.html", context)
 
-        # return render(request, "bookings/movie_list.html")
-        #return Response(data=serializer.data, status=status.HTTP_201_CREATED)
-
 
 # create seats to list available seats in a specific movie
 class SeatViewSet(viewsets.ViewSet):
     queryset = Seat.objects.all()
     serializer_class = SeatSerializer
 
+    # list available seats
     def list(self, request):
         queryset = Seat.objects.all()
         serializer = SeatSerializer(queryset, many=True)
-        return render(request, "bookings/seat_booking.html")
+        
+        seats = Seat.objects.all()    
+        context= {'seats': seats}
+        return render(request, "bookings/seat_booking.html", context)
 
     def retrieve(self, request, pk=None):
         pass

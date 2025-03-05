@@ -3,22 +3,28 @@
 
 {% extends 'bookings/base.html' %}
 <body>
-{% block title %}<h1> Available Movies</h1>{% endblock %}
+{% block title %}<h1 class="text-center"> Available Movies</h1>{% endblock %}
 {% block content %}
 
-
-<div class="col col-lg-2 text-primary-emphasis bg-red-300-subtle border border-primary-subtle rounded-3">
-    <ul class="list-group">
+<!--create grid with movie info in them -->
+<div class="container">
+<div class="col row-cols-lg-3 text-primary-emphasis bg-info-subtle border-5 rounded-3 border-opacity: .1 text-center">
+    <ul class="list-group border">
         {% for movie in movies %}
-        <li class="list-group-item">
+        <li class="list-group-item border-opacity: .1 border-5 ">
             <h5>{{movie.movie_title}}</h5>
             <p>{{movie.description}}</p>
+            <p>Release Date: {{movie.release_date}}</p>
+            <h5>Movie Duration: </h5>
+            <p>{{movie.duration}} minutes</p>
             
         </li>
-        <form action="https://app-redherring-5.devedu.io/api/seats/">
+        <form class="text-center border" action="https://app-redherring-5.devedu.io/api/seats/">
             <input type="submit" value="Find Seats" />
+            </form>
      {% endfor %}
     </ul>
+</div>
 </div>
 </body>
 {% endblock %}

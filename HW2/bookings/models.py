@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 # Create your models here.
+# Movie model: title, description, release date, duration
 class Movie(models.Model):
     movie_title = models.CharField(max_length=200, default='')
     description = models.CharField(max_length=200, default='')
@@ -12,15 +13,16 @@ class Movie(models.Model):
     def __str__(self):
         return self.movie_title
 
+# Seat model: seat number and booking status (available or not)
 class Seat(models.Model):
     
     seat_number = models.IntegerField(default=0)
     booking_status = models.CharField(max_length=50, default='')
 
     def __str__(self):
-        return self.seats
+        return self.booking_status
 
-
+# Booking model: shows user's chosen movie and seat, and the date of the movie
 class Booking(models.Model):
     
     movie_chosen = models.CharField(max_length=200, default='')
@@ -29,4 +31,4 @@ class Booking(models.Model):
     booking_date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
-        return self.current_bookings
+        return self.movie_chosen
